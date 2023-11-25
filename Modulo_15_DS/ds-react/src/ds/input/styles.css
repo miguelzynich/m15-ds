@@ -1,0 +1,25 @@
+.inputLabel {
+    margin-right: 0.5rem;
+}
+
+.actionButton {
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.size-action-big {
+    width: 200px;
+    height: 60px;
+}
+
+.size-action-medium {
+    width: 150px;
+    height: 45px;
+}
+
+.size-action-small {
+    width: 100px;
+    height: 30px;
+}
