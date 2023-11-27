@@ -1,20 +1,8 @@
 .selectDS {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.selectLabel {
-    margin-right: 0.5rem;
-}
-
-.color-action-primary,
-.color-action-secondary,
-.color-action-dark {
-    border: 2px solid;
-    padding: 10px;
-    cursor: pointer;
-    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .color-action-primary {
@@ -32,27 +20,20 @@
     border-color: #000;
 }
 
-.size-action-big,
-.size-action-medium,
-.size-action-small {
-    width: 200px; 
-    padding: 10px; 
-    margin: 5px; 
-    text-align: center;
-    cursor: pointer;
-    transition: width 0.3s ease;
+.size-action-big {
+    width: 250px;
 }
 
 .size-action-medium {
-    width: 150px;
+    width: 180px;
 }
 
 .size-action-small {
-    width: 100px;
+    width: 120px;
 }
 
 .fSize-action-big {
-    font-size: 2.1rem;
+    font-size: 1.4rem;
 }
 
 .fSize-action-medium {

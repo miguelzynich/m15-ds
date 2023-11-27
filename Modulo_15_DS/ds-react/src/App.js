@@ -1,24 +1,43 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import Button from './ds/button/button.js';
-import Flex from './ds/flex/flex.js';
-import Input from './ds/input/input.js';
-import Select from './ds/select/select.js'
+import Header from './Components/header/Header.js';
+import OffBanner from './Components/offBanner/OffBanner';
+import ProductsPopular from './Components/productsPopular/ProductsPopular';
+import SlickerCategories from './Components/slickerCategories/SlickerCategories';
+import SlickerSlides from './Components/slickerSlides/slickerSlides.js';
 
 function App() {
-  return (
-    <div className="App">
-        <Flex direction='column' align='flex-start' justify='center'>
-          <Input direction='column' label='Nome' id='nome'/>
-          <Input type='text' direction='column' label='Email' id='email'/>
-          <Select direction='column' labelText='Gênero:'>
-            <option>Masculino</option>
-            <option>Feminino</option>
-            <option>Outro</option>
-          </Select>
-          <Button variation='primary' size='small'>Enviar</Button>
-        </Flex>
-    </div>
-  );
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3003/products")
+    .then(res => res.json())
+    .then((result) => {
+      setIsLoaded(true);
+      setItems(result);
+    }, (error) => {
+      setIsLoaded(true);
+      setError(error);
+    })
+  }, [])
+
+  if (error) {
+    return <div>Erro: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Carregando...</div>;
+  } else {
+      return (
+        <div className="App">
+          <Header />
+          <SlickerSlides />
+          <OffBanner />
+          <SlickerCategories />
+          <ProductsPopular items={items} />
+        </div>
+      );
+  }
 }
 
 export default App;

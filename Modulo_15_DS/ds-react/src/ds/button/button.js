@@ -1,27 +1,14 @@
-import { useState } from 'react'
-import './styles.css'
+import React from 'react';
+import './Button.css';  
 
-const Button = (props) => {
+const Button = ({ align, variation, children }) => {
+  const classNames = `btn align-${align} variation-${variation}`;
+  
+  return (
+    <button className={classNames}>
+      {children}
+    </button>
+  );
+};
 
-    const [textContent, setTextContent] = useState(props.children)
-    
-    const color = `action-${props.variation}`
-    const bgColor = `bg-action-${props.variation}`
-    const bColor = `b--action-${props.variation}`
-    const bSize = `bSize-action-${props.size}`
-
-    const delay = (ms) => new Promise(
-      resolve => setTimeout(resolve, ms)
-    )
-    const handleClick = async e => {
-      setTextContent("Carregando...")
-      await delay(3000)
-      setTextContent("Enviado!")
-    }
-
-    return <button onClick={handleClick} className={`${color} ${bgColor} ${bColor} ${bSize} btn br2 pv1 ph3`}>
-             {textContent}
-           </button>
-}
-
-export default Button
+export default Button;
