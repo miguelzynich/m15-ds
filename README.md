@@ -14,7 +14,7 @@ Home de uma loja feita em react.
 3. Instale as dependências: `npm install`
 
 ## Executando o Projeto
-1. Inicie o JSON Server (se aplicável): `json-server --watch db.json --port 3001` 
+1. Inicie o JSON Server (se aplicável): `json-server --watch db.json --port 3003` 
    - Certifique-se de ajustar a porta conforme necessário.
 2. Inicie o aplicativo React: `npm start`
 
